@@ -2,11 +2,11 @@
 
 class LineItem:
     """
-    >> ll = LineItem('some', 2, 3)
-    >> ll.weight = 2
+    >>> ll = LineItem('some', 2, 3)
+    >>> ll.weight = 2
 
-    >> ll.weight = 5
-    >> ll.weight = 5  __weight 屏蔽了weight?
+    >>> ll.weight = 5
+    >>> ll.weight = 5  __weight 屏蔽了weight?
     """
     def __init__(self, description, weight, price):
         self.description = description

@@ -28,7 +28,7 @@ Test of ``.frombytes()`` class method:
     >>> v1_clone
     Vector2d(3.0, 4.0)
     >>> v1 == v1_clone
-    Trur
+    True
 
 Tests of ``format()`` with Cartesian coordinates:
     >>> format(v1)

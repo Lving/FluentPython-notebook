@@ -51,64 +51,64 @@ class NonOverriding:
 class Managed:
     """
     1. 覆盖型描述符的行为：
-    >> obj = Managed()
-    >> obj.over
+    >>> obj = Managed()
+    >>> obj.over
     -> Overriding.__get__(<Overriding object>, <Managed object>,<class Managed>)
 
-    >> Managed.over
+    >>> Managed.over
     -> Overriding.__get__(<Overriding object>, None, <class Managed>)
 
-    >> obj.over = 7
+    >>> obj.over = 7
     -> Overriding.__set__(<Overriding object>, <Managed object>, 7)
 
-    >> obj.over
+    >>> obj.over
     -> Overriding.__get__(<Overriding object>, <Managed object>,<class Managed>)
 
-    >> obj.__dict__['over'] = 8
-    >> vars(obj)
+    >>> obj.__dict__['over'] = 8
+    >>> vars(obj)
     {"over": 8}
 
-    >> obj.over
+    >>> obj.over
     -> Overriding.__get__(<Overriding object>, <Managed object>, <class Managed>)
 
     2. 没有 __get__ 方法的覆盖性描述符
-    >> obj.over_no_get
+    >>> obj.over_no_get
     <__main__.OverridingNoGet object at 0x665bcc>
 
-    >> Managed.over_no_get
+    >>> Managed.over_no_get
     __main__.OverridingNoGet object at 0x665bcc>
 
-    >> obj.over_no_get = 7
+    >>> obj.over_no_get = 7
     -> OverridingNoGet.__set__(<OverridingNoGet object>, <Managed object>)
 
-    >> obj.over_no_get
+    >>> obj.over_no_get
     <__main__.OverridingNoGet object at 0x665bcc>
 
-    >> obj.__dict__['over_no-get'] = 9
-    >> obj.over_no_get
+    >>> obj.__dict__['over_no-get'] = 9
+    >>> obj.over_no_get
     9
 
-    >> obj.over_no_get = 7
+    >>> obj.over_no_get = 7
     -> OverridingNoGet.__set__(<OverridingNoGet object>, <Managed object>)
 
-    >> obj.over_no_get
+    >>> obj.over_no_get
     9
 
     3. 没有__set__ 方法的描述符是非覆盖型描述符，如果设置了同名的实例属性。描述符会被遮盖，致使描述符无法处理
     那个实例的那个属性
-    >> obj = Managed()
-    >> obj.non_over
+    >>> obj = Managed()
+    >>> obj.non_over
     -> NonOverriding.__get__(<NonOverriding object>, <Managed object>,<class Managed>)
 
-    >> obj.non_over = 7
-    >> obj.non_over
+    >>> obj.non_over = 7
+    >>> obj.non_over
     7
 
-    >> Managed.non_over
+    >>> Managed.non_over
     -> NonOverriding.__get__(<NonOverriding object>, None, <class Managed>)
 
-    >> del obj.non_over
-    >> obj.non_over
+    >>> del obj.non_over
+    >>> obj.non_over
     -> NonOverriding.__get__(<NonOverriding object>, <Managed object>, <class Managed>)
     """
     over = Overriding()

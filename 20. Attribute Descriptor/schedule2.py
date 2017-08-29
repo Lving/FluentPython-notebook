@@ -61,13 +61,13 @@ class DbRecord(Record): # 2
 
 class Event(DbRecord):
     """
-    >> DbRecord.set_db(db)
-    >> event = DbRecord.fetch('event.33950')
-    >> event
+    >>> DbRecord.set_db(db)
+    >>> event = DbRecord.fetch('event.33950')
+    >>> event
     <Event 'There *Will* Be Bugs'>
-    >> event.venue
+    >>> event.venue
     <DbRecord serial='venue.1449'>
-    >> event.venue.name
+    >>> event.venue.name
     'Portland 251'
 
     """
