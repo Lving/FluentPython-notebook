@@ -84,8 +84,6 @@ if __name__ == '__main__':
 
     print(Order(ann, cart, FidelityPromo()))
 
-import pymysql
-conn = pymysql.connect()
 
 
 
