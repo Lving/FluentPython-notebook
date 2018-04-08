@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 from collections import abc
 from keyword import iskeyword
-
+import shelve
 
 class FrozenJSON:
     def __new__(cls, arg):
         if isinstance(arg, abc.Mapping):
-            return super().__new__(cls)
+            return super().__new__(cls)  # 调用object.__new__(FrozenJSON)
         elif isinstance(arg, abc.MutableSequence):
             return [cls[item] for item in arg]
         else:
